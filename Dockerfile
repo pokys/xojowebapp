@@ -1,5 +1,5 @@
 #BASE IMAGE
-FROM ubuntu:20.04
+FROM i386/ubuntu:focal
 
 
 #INSTALL REQUIRED LIBRARIES
