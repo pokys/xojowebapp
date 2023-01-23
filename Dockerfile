@@ -5,7 +5,13 @@ FROM ubuntu:20.04
 #INSTALL REQUIRED LIBRARIES
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install -y libunwind8 libglib2.0 locales fontconfig -y && echo "yes" | apt install ttf-mscorefonts-installer -y && fc-cache -f -v
+
+RUN apt-get update && apt-get install -y libunwind8 libglib2.0 locales fc-cache -f -v
+RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
+RUN apt-get install -y --no-install-recommends fontconfig ttf-mscorefonts-installer
+RUN fc-cache -f -v
+
+
 RUN locale-gen cs_CZ.UTF-8
 RUN locale-gen en_US.UTF-8
 
