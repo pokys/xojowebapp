@@ -34,6 +34,8 @@ ENV LC_TELEPHONE=cs_CZ.UTF-8
 ENV LC_MEASUREMENT=cs_CZ.UTF-8
 ENV LC_IDENTIFICATION=cs_CZ.UTF-8
 
+ENV TZ="Europe/Prague"
+
 RUN update-locale LC_ALL=cs_CZ.UTF-8 LANG=cs_CZ.UTF-8
 RUN dpkg-reconfigure locales
 
