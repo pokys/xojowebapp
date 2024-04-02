@@ -2,9 +2,9 @@ name: Build and Push Docker Image to Docker Hub
 
 on:
   push:
-    branches: [ "ubuntu64" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "ubuntu64" ]
+    branches: [ "master" ]
 jobs:
   push_to_registry:
     name: push docker image to hub
@@ -19,15 +19,21 @@ jobs:
           username: ${{secrets.DOCKERHUB_USERNAME}}
           password: ${{secrets.DOCKERHUB_TOKEN}}
 
-      - name: build and push docker image to registry
+      - name: build and push FOCAL
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./focal/
           push: true
-          tags: pokys/xojowebapp:test
-      - name: build and push docker image to registry
+          tags: pokys/xojowebapp:focal
+      - name: build and push NOBLE
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./noble/
           push: true
-          tags: pokys/xojowebapp:test64
+          tags: pokys/xojowebapp:noble
+      - name: build and push LATEST
+        uses: docker/build-push-action@v5
+        with:
+          context: ./latest/
+          push: true
+          tags: pokys/xojowebapp:latest
