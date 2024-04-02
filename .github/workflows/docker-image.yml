@@ -1,18 +1,27 @@
-name: Docker Image CI
+name: Build and Push Docker Image to Docker Hub
 
 on:
   push:
     branches: [ "ubuntu64" ]
   pull_request:
     branches: [ "ubuntu64" ]
-
 jobs:
-
-  build:
-
+  push_to_registry:
+    name: push docker image to hub
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: check repository
+        uses: actions/checkout@v4
+
+      - name: login to docker registry
+        uses: docker/login-action@v3
+        with:
+          username: ${{secrets.DOCKERHUB_USERNAME}}
+          password: ${{secrets.DOCKERHUB_TOKEN}}
+
+      - name: build and push docker image to registry
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: pokys/xojowebapp:test
