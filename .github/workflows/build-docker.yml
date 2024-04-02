@@ -19,12 +19,7 @@ jobs:
           username: ${{secrets.DOCKERHUB_USERNAME}}
           password: ${{secrets.DOCKERHUB_TOKEN}}
 
-      - name: build and push FOCAL
-        uses: docker/build-push-action@v5
-        with:
-          context: ./focal/
-          push: true
-          tags: pokys/xojowebapp:focal
+
       - name: build and push NOBLE
         uses: docker/build-push-action@v5
         with:
@@ -37,3 +32,10 @@ jobs:
           context: ./latest/
           push: true
           tags: pokys/xojowebapp:latest
+
+      - name: build and push FOCAL
+        uses: docker/build-push-action@v5
+        with:
+          context: ./focal/
+          push: true
+          tags: pokys/xojowebapp:focal
