@@ -25,3 +25,9 @@ jobs:
           context: .
           push: true
           tags: pokys/xojowebapp:test
+      - name: build and push docker image to registry
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: pokys/xojowebapp:test64
