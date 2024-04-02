@@ -6,7 +6,7 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND noninteractive
 
 
-RUN apt-get clean && apt-get update && apt-get install -y libunwind8 libglib2.0 locales libsoup-3.0-0
+RUN apt-get clean && apt-get update && apt-get install -y libunwind8 libglib2.0 locales libsoup-2.4-1
 # microsoft ttfonts
 RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
 RUN apt-get install -y --no-install-recommends fontconfig ttf-mscorefonts-installer
