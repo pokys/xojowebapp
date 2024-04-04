@@ -1,9 +1,9 @@
-name: Build Docker for LATEST
+name: Build Docker for ROLLING
 
 on:
   push:
     paths:
-      - 'latest/**'
+      - 'rolling/**'
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
@@ -24,7 +24,6 @@ jobs:
       - name: build and push LATEST
         uses: docker/build-push-action@v5
         with:
-          context: ./latest/
+          context: ./rolling/
           push: true
-          tags: pokys/xojowebapp:latest
-
+          tags: pokys/xojowebapp:rolling
