@@ -1,5 +1,5 @@
 #BASE IMAGE
-FROM ubuntu:latest
+FROM ubuntu:rolling
 
 
 #INSTALL REQUIRED LIBRARIES
