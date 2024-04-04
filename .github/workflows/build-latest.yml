@@ -2,8 +2,9 @@ name: Build Docker for LATEST
 
 on:
   push:
+    paths:
+      - 'latest/**'
     branches: [ "master" ]
-
   pull_request:
     branches: [ "master" ]
 jobs:
