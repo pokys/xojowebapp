@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "master" ]
     paths:
-      - '/latest/**'
+      - '/latest/Dockerfile'
   pull_request:
     branches: [ "master" ]
 jobs:
