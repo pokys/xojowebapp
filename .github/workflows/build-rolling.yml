@@ -11,14 +11,6 @@ jobs:
   push_to_registry:
     name: push docker image to hub
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        platform:
-          - linux/amd64
-          - linux/arm/v6
-          - linux/arm/v7
-          - linux/arm64
     steps:
       - name: check repository
         uses: actions/checkout@v4
