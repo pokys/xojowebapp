@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 
 RUN apt-get clean && apt-get update && apt-get install -y libunwind8 libglib2.0 locales libsoup2.4-1
-# Microsoft ttfonts
+# microsoft ttfonts
 RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
 RUN apt-get install -y --no-install-recommends fontconfig ttf-mscorefonts-installer
 RUN fc-cache -f -v
