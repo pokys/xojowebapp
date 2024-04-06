@@ -40,3 +40,12 @@ jobs:
           tags: |
             pokys/xojowebapp:rolling
           platforms: linux/amd64,linux/arm64,linux/386,linux/arm/v7
+
+      - name: "Commit last state"
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "robot@github.invalid"
+          date > lastrun
+          git add lastrun || true
+          git commit -m "Update last run (autocommit)" || true
+          git push
