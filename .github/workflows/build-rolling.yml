@@ -1,6 +1,8 @@
 name: Build Docker for ROLLING
 
 on:
+  schedule:
+    - cron: '30 2 * * *'  
   push:
     paths:
       - 'rolling/**'
@@ -37,5 +39,4 @@ jobs:
           push: true
           tags: |
             pokys/xojowebapp:rolling
-            pokys/xojowebapp:rolling-arm64
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64,linux/arm64,linux/386,linux/arm/v7
