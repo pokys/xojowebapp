@@ -39,7 +39,7 @@ jobs:
           push: true
           tags: |
             pokys/xojowebapp:rolling
-          platforms: linux/amd64,linux/arm64,linux/386,linux/arm/v7
+          platforms: linux/amd64,linux/arm64
 
       - name: "Commit last state"
         run: |
